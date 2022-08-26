@@ -13,8 +13,8 @@ import 'package:sliding_sheet/sliding_sheet.dart';
 
 
 
-String defaultFontName = "Raleway";
-ColorScheme defaultColorScheme = const ColorScheme(
+const String defaultFontName = "Raleway";
+const ColorScheme defaultClorScheme = ColorScheme(
   brightness: Brightness.light,
   primary: Colors.black,
   onPrimary: Colors.white,
@@ -27,10 +27,6 @@ ColorScheme defaultColorScheme = const ColorScheme(
   surface: Colors.white,
   onSurface: Colors.black,
 );
-
-
-
-void changeComponentsColorScheme(ColorScheme newColorScheme) => defaultColorScheme = newColorScheme;
 
 
 
@@ -98,21 +94,23 @@ double screenHeight(context) => totalScreenHeight(context) - MediaQuery.of(conte
 // DIALOG
 class TavyText extends StatelessWidget {
 
-  TavyText(this.data,
+  TavyText(
+    this.data,
   {
-  this.max = 5000,
-  this.translate = true,
-  this.fontName = "Open Sans",
-  this.align, this.size,
-  this.weight,
-  this.color
+    this.colorScheme = defaultClorScheme,
+    this.max = 5000,
+    this.fontName = "Open Sans",
+    this.align = TextAlign.left,
+    this.size = 16,
+    this.weight = FontWeight.normal,
+    this.color
   });
 
+  ColorScheme colorScheme;
   String data;
   int max;
-  bool translate;
-  String  fontName;
   TextAlign? align;
+  String? fontName;
   double? size;
   FontWeight? weight;
   Color? color;
@@ -124,10 +122,10 @@ class TavyText extends StatelessWidget {
       ( data ).short(max),
       textAlign: align ?? TextAlign.left,
       style: GoogleFonts.getFont(
-        fontName,
+        fontName ?? "Open Sans",
         fontSize: size ?? 16,
         fontWeight: weight ?? FontWeight.normal,
-        color: color ?? defaultColorScheme.onBackground,
+        color: color ?? colorScheme.onBackground,
       ),
     );
   }
@@ -136,258 +134,158 @@ class TavyText extends StatelessWidget {
 
 
 
-class H2 extends StatelessWidget {
-
-  H2(this.data, {this.max = 5000, this.translate = true, this.fontName, this.align, this.size, this.weight, this.color});
-
-  String data;
-  int max;
-  bool translate;
-  String? fontName;
-  TextAlign? align;
-  double? size;
-  FontWeight? weight;
-  Color? color;
-
-
-  @override
-  Widget build(BuildContext context) {
-    return TavyText(
-      data.short(max),
-      fontName: fontName ?? defaultFontName,
-      align: align ?? TextAlign.center,
-      size: size ?? 22,
-      weight: weight ?? FontWeight.bold,
-      color: color,
-    );
-  }
-}
-
-
-class H3 extends StatelessWidget {
-
-  H3(this.data, {this.max = 5000, this.translate = true, this.align, this.size, this.weight, this.color});
-
-  String data;
-  int max;
-  bool translate;
-  TextAlign? align;
-  double? size;
-  FontWeight? weight;
-  Color? color;
-
-
-  @override
-  Widget build(BuildContext context) {
-    return TavyText(
-      data.short(max),
-      align: align ?? TextAlign.center,
-      size: size ?? 24,
-      weight: weight ?? FontWeight.bold,
-      color: color,
-    );
-  }
-}
-
-
-class H4 extends StatelessWidget {
-
-  H4(
-    this.data,
+class H2 extends TavyText {
+  H2(
+    data,
     {
-    this.max = 5000,
-    this.translate = true,
-    this.appFont = true,
-    this.align = TextAlign.left,
-    this.size = 18,
-    this.weight = FontWeight.bold,
-    this.color
-    });
-
-  String data;
-  int max;
-  bool translate;
-  bool appFont;
-  TextAlign align;
-  double size;
-  FontWeight weight;
-  Color? color;
-
-
-  @override
-  Widget build(BuildContext context) {
-    return TavyText(
-      data.short(max),
-      fontName: defaultFontName,
-      align: align,
-      size: size,
-      weight: weight,
-      color: color,
-    );
-  }
+      max,
+      align = TextAlign.center,
+      fontName = defaultFontName,
+      size = 22,
+      weight = FontWeight.bold,
+      color,
+    }
+  ) : super(
+    data,
+    max: max,
+    align: align,
+    fontName: fontName,
+    size: size,
+    weight: weight,
+    color: color,
+  );
 }
 
 
-class H5 extends StatelessWidget {
-
-  const H5(this.data, {this.max = 5000, this.translate = true, this.align, this.size, this.weight, this.color});
-
-  final String data;
-  final int max;
-  final bool translate;
-  final TextAlign? align;
-  final double? size;
-  final FontWeight? weight;
-  final Color? color;
-
-
-  @override
-  Widget build(BuildContext context) {
-    return TavyText(
-      data.short(max),
-      fontName: defaultFontName,
-      align: align ?? TextAlign.left,
-      size: size ?? 18,
-      weight: weight ?? FontWeight.bold,
-      color: color ?? Colors.grey[600],
-    );
-  }
+class H3 extends TavyText {
+  H3(
+    data,
+    {
+      align = TextAlign.center,
+      fontName = defaultFontName,
+      size = 224,
+      weight = FontWeight.bold,
+    }
+  ) : super(
+    data,
+    align: align,
+    fontName: fontName,
+    size: size,
+    weight: weight,
+  );
 }
 
 
-class H6 extends StatelessWidget {
-
-  H6(this.data, {this.max = 5000, this.translate = true, this.appFont = true, this.align, this.size = 16, this.weight, this.color});
-
-  String data;
-  int max;
-  bool translate;
-  bool appFont;
-  TextAlign? align;
-  double? size;
-  FontWeight? weight;
-  Color? color;
-
-
-  @override
-  Widget build(BuildContext context) {
-    return TavyText(
-      data.short(max),
-      fontName: defaultFontName,
-      align: align ?? TextAlign.center,
-      size: size,
-      weight: weight,
-      color: color,
-    );
-  }
+class H4 extends TavyText {
+  H4(
+    data,
+    {
+      fontName = defaultFontName,
+      size = 18,
+      weight = FontWeight.bold,
+    }
+  ) : super(
+    data,
+    fontName: fontName,
+    size: size,
+    weight: weight,
+  );
 }
 
 
-
-
-class S1 extends StatelessWidget {
-
-  S1(this.data, {this.max = 5000, this.translate = true, this.fontName = "Open Sans", this.align, this.size, this.weight, this.color});
-
-  String data;
-  int max;
-  bool translate;
-  final String fontName;
-  TextAlign? align;
-  double? size;
-  FontWeight? weight;
-  Color? color;
-
-  @override
-  Widget build(BuildContext context) {
-    return TavyText(
-      data.short(max),
-      fontName: fontName,
-      size: size ?? 16,
-      weight: weight ?? FontWeight.normal,
-      color: color ?? Colors.grey[600],
-    );
-  }
+class H5 extends TavyText {
+  H5(
+    data,
+    {
+      fontName = defaultFontName,
+      size = 18,
+      weight = FontWeight.bold,
+      color,
+    }
+  ) : super(
+    data,
+    fontName: fontName,
+    size: size,
+    weight: weight,
+    color: color ?? Colors.grey.shade600,
+  );
 }
 
 
-class S2 extends StatelessWidget {
-
-  S2(this.data, {this.max = 5000, this.translate = true, this.align, this.size, this.weight, this.color});
-
-  String data;
-  int max;
-  bool translate;
-  TextAlign? align;
-  double? size;
-  FontWeight? weight;
-  Color? color;
-
-  @override
-  Widget build(BuildContext context) {
-    return TavyText(
-      data.short(max),
-      fontName: defaultFontName,
-      align: align,
-      size: size ?? 14,
-      weight: weight,
-      color: color ?? Colors.grey[600],
-    );
-  }
+class H6 extends TavyText {
+  H6(
+    data,
+    {
+      align = TextAlign.center,
+    }
+  ) : super(
+    data,
+    align: align,
+  );
 }
 
 
 
 
-class P1 extends StatelessWidget {
-
-  P1(this.data, {this.max = 5000, this.translate = true, this.fontName = "Open Sans", this.align = TextAlign.justify, this.size, this.weight, this.color});
-
-  String data;
-  int max;
-  bool translate;
-  String fontName;
-  TextAlign? align;
-  double? size;
-  FontWeight? weight;
-  Color? color;
-
-  @override
-  Widget build(BuildContext context) {
-    return TavyText(
-      data.short(max),
-      fontName: fontName,
-      align: align,
-      size: size ?? 18,
-      weight: weight ?? FontWeight.normal,
-      color: color ?? defaultColorScheme.onBackground,
-    );
-  }
+class S1 extends TavyText {
+  S1(
+    data,
+    {
+      color,
+    }
+  ) : super(
+    data,
+    color: color ?? Colors.grey.shade600,
+  );
 }
 
 
-class P2 extends StatelessWidget {
+class S2 extends TavyText {
+  S2(
+    data,
+    {
+      size = 14,
+      color,
+    }
+  ) : super(
+    data,
+    size: size,
+    color: color ?? Colors.grey.shade600,
+  );
+}
 
-  P2(this.data, {this.max = 5000, this.translate = true, this.align, this.size, this.weight, this.color});
 
-  String data;
-  int max;
-  bool translate;
-  TextAlign? align;
-  double? size;
-  FontWeight? weight;
-  Color? color;
 
-  @override
-  Widget build(BuildContext context) {
-    return TavyText(
-      data.short(max),
-      align: align ?? TextAlign.justify,
-      size: size ?? 16,
-      weight: weight ?? FontWeight.normal,
-      color: color ?? defaultColorScheme.onBackground,
-    );
-  }
+
+class P1 extends TavyText {
+  P1(
+    data,
+    {
+      size = 18,
+      align = TextAlign.justify,
+    }
+  ) : super(
+    data,
+    size: size,
+    align: align,
+  );
+}
+
+
+class P2 extends TavyText {
+  P2(
+    data,
+    {
+      size = 16,
+      align = TextAlign.justify,
+      color,
+    }
+  ) : super(
+    data,
+    size: size,
+    align: align,
+    color: color,
+  );
 }
 
 
@@ -403,6 +301,7 @@ class P2 extends StatelessWidget {
 // Large button
 class TavyLargeButton extends StatelessWidget {
   const TavyLargeButton({
+    this.colorScheme,
     this.iconData = Icons.check,
     this.iconSize = 64 + 10,
     this.color,
@@ -411,6 +310,7 @@ class TavyLargeButton extends StatelessWidget {
     this.onLongPress,
   });
 
+  final ColorScheme? colorScheme;
   final IconData iconData;
   final double iconSize;
   final Color? color;
@@ -424,16 +324,16 @@ class TavyLargeButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: hasBorder ? Border.all(color: defaultColorScheme.onSurface) : null,
+        border: hasBorder ? Border.all(color: colorScheme?.onSurface ?? defaultClorScheme.onSurface) : null,
       ),
       child: TextButton(
+        onPressed: onPressed,
+        onLongPress: onLongPress,
         child: Icon(
           iconData,
           size: iconSize,
-          color: color ?? defaultColorScheme.primary.withOpacity(0.1),
+          color: color ?? colorScheme?.primary.withOpacity(0.1) ?? defaultClorScheme.primary.withOpacity(0.1),
         ),
-        onPressed: onPressed,
-        onLongPress: onLongPress,
       ),
     );
   }
@@ -447,6 +347,7 @@ class TavyLargeButton extends StatelessWidget {
 class TavyDialog extends StatefulWidget {
 
   const TavyDialog({
+    this.colorScheme = defaultClorScheme,
     this.formKey,
     this.width = 300,
     this.height = 300,
@@ -456,7 +357,7 @@ class TavyDialog extends StatefulWidget {
     this.buttons,
   });
 
-
+  final ColorScheme colorScheme;
   final GlobalKey<FormState>? formKey;
   final String title;
   final String? subtitle;
@@ -476,7 +377,7 @@ class _TavyDialogState extends State<TavyDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: defaultColorScheme.surface,
+      backgroundColor: widget.colorScheme.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
@@ -535,6 +436,7 @@ class _TavyDialogState extends State<TavyDialog> {
 // Text button with primary (filled), secondary (outlined) and tertiary (text-only) variations
 class TavyTextButton extends StatefulWidget {
   const TavyTextButton({
+    this.colorScheme = defaultClorScheme,
     this.isOutlined = true,
     this.isTertiary = false,
     this.text = "Submit",
@@ -545,6 +447,7 @@ class TavyTextButton extends StatefulWidget {
     this.onLongPress,
   });
 
+  final ColorScheme colorScheme;
   final bool isOutlined;
   final bool isTertiary;
   final String text;
@@ -567,19 +470,19 @@ class _TavyTextButtonState extends State<TavyTextButton> {
 
     return widget.isTertiary
     ? TextButton(
+      onPressed: widget.onPressed ?? () {},
+      onLongPress: widget.onLongPress,
       child: Text(
         widget.text,
         style: GoogleFonts.getFont(
           "Open Sans",
           fontSize: 16,
           fontWeight: FontWeight.bold,
-          color: widget.color ?? defaultColorScheme.onSurface,
+          color: widget.color ?? widget.colorScheme.onSurface,
           decoration: TextDecoration.underline,
           decorationThickness: 2,
         ),
       ),
-      onPressed: widget.onPressed ?? () {},
-      onLongPress: widget.onLongPress,
     )
     : ElevatedButton(
       style: ButtonStyle(
@@ -587,21 +490,21 @@ class _TavyTextButtonState extends State<TavyTextButton> {
         backgroundColor: MaterialStateProperty.all(
           widget.isOutlined
           ?  Colors.transparent
-          : widget.color ?? ( defaultColorScheme.brightness == Brightness.dark && false ? defaultColorScheme.onSurface.withOpacity(0.5) : defaultColorScheme.primary ),
+          : widget.color ?? ( widget.colorScheme.brightness == Brightness.dark && false ? widget.colorScheme.onSurface.withOpacity(0.5) : widget.colorScheme.primary ),
         ),
         shape: MaterialStateProperty.all(StadiumBorder(
           side: widget.isOutlined
-          ? BorderSide(width: defaultColorScheme.brightness == Brightness.dark && false ? 0 : 1, color: defaultColorScheme.onSurface)
+          ? BorderSide(width: widget.colorScheme.brightness == Brightness.dark && false ? 0 : 1, color: widget.colorScheme.onSurface)
           : BorderSide.none,
         )),
         elevation: widget.isOutlined ? MaterialStateProperty.all(0) : null,
       ),
-      child: P2(
-        widget.text,
-        color: widget.isOutlined ? defaultColorScheme.onBackground : defaultColorScheme.onPrimary,
-      ),
       onPressed: widget.onPressed ?? () {},
       onLongPress: widget.onLongPress,
+      child: P2(
+        widget.text,
+        color: widget.isOutlined ? widget.colorScheme.onBackground : widget.colorScheme.onPrimary,
+      ),
     );
   }
 }
@@ -614,6 +517,8 @@ class _TavyTextButtonState extends State<TavyTextButton> {
 void showTavySheet(
   context,
   {
+    ColorScheme colorScheme = defaultClorScheme,
+
     bool snapping = false,
     Duration? duration,
     Curve? animationCurve = Curves.easeInOut,
@@ -649,7 +554,7 @@ void showTavySheet(
         onSnap: onSnap,
       ),
       backdropColor: barrierColor,
-      color: color ?? defaultColorScheme.surface,
+      color: color ?? colorScheme.surface,
       cornerRadius: cornerRadius,
       padding: EdgeInsets.zero,
       headerBuilder: (context, sheetState) => Container(
@@ -686,7 +591,7 @@ void showTavySheet(
       child: Container(
         height: ( height ?? screenHeight(context) / 2 ),
         decoration: BoxDecoration(
-          color: color ?? defaultColorScheme.surface,
+          color: color ?? colorScheme.surface,
           borderRadius: BorderRadius.vertical(top: Radius.circular(cornerRadius)),
         ),
         child: Column(
@@ -726,6 +631,7 @@ void showTavySheet(
 
 class TavySheetContent extends StatefulWidget {
   TavySheetContent({
+    this.colorScheme = defaultClorScheme,
     this.minimumSnappableHeight = 0.5,
     this.padding = const EdgeInsets.only(top: 32, left: 32, right: 32, bottom: 16),
     this.isTitleSmall = true,
@@ -738,7 +644,7 @@ class TavySheetContent extends StatefulWidget {
     this.child,
   });
 
-  
+  ColorScheme colorScheme;
   double minimumSnappableHeight;
   EdgeInsets? padding;
   bool isTitleSmall;
@@ -759,7 +665,7 @@ class _TavySheetContentState extends State<TavySheetContent> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: defaultColorScheme.surface,
+      color: widget.colorScheme.surface,
       child: ConstrainedBox(
         constraints: BoxConstraints(
           minHeight: screenHeight(context) * widget.minimumSnappableHeight - 25,
@@ -828,7 +734,7 @@ void showTavyInfoSnackBar(
   context,
   String text,
   {
-    bool translate = true,
+    ColorScheme colorScheme = defaultClorScheme,
     Color? color,
     double fontSize = 16,
     Color? fontColor,
@@ -844,16 +750,15 @@ void showTavyInfoSnackBar(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
-      backgroundColor: defaultColorScheme.secondary,
+      backgroundColor: colorScheme.secondary,
       dismissDirection: DismissDirection.horizontal,
       content: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           P2(
             text.short(35),
-            translate: translate,
             size: fontSize,
-            color: fontColor ?? defaultColorScheme.background,
+            color: fontColor ?? colorScheme.background,
           ),
           action ?? IconButton(
             icon: Icon(
@@ -877,8 +782,13 @@ void showTavyInfoSnackBar(
 
 class DesignedBy extends StatelessWidget {
 
-  const DesignedBy([this.created = false]);
+  const DesignedBy(
+  {
+    this.colorScheme = defaultClorScheme,
+    this.created = false,
+  });
 
+  final ColorScheme colorScheme;
   final bool created;
 
 
@@ -893,7 +803,7 @@ class DesignedBy extends StatelessWidget {
           fontSize: 14,
           fontWeight: FontWeight.normal,
           fontStyle: FontStyle.normal,
-          color: defaultColorScheme.primary.withOpacity(0.1),
+          color: colorScheme.primary.withOpacity(0.1),
         ),
       ),
       Text(
@@ -904,7 +814,7 @@ class DesignedBy extends StatelessWidget {
           fontSize: 14,
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.normal,
-          color: defaultColorScheme.primary.withOpacity(0.1),
+          color: colorScheme.primary.withOpacity(0.1),
         ),
       ),
     ],
