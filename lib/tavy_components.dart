@@ -98,11 +98,11 @@ class TavyText extends StatelessWidget {
     this.data,
   {
     this.colorScheme = defaultColorScheme,
-    this.max,
-    this.fontName,
-    this.align,
-    this.size,
-    this.weight,
+    this.max = 5000,
+    this.fontName = "Open Sans",
+    this.align = TextAlign.left,
+    this.size = 16,
+    this.weight = FontWeight.normal,
     this.color
   });
 
@@ -138,12 +138,12 @@ class H2 extends TavyText {
   H2(
     data,
     {
-      max,
-      align = TextAlign.center,
-      fontName = defaultFontName,
-      size = 22,
-      weight = FontWeight.bold,
-      color,
+      int? max,
+      TextAlign align = TextAlign.center,
+      String fontName = defaultFontName,
+      double size = 22,
+      FontWeight weight = FontWeight.bold,
+      Color? color,
     }
   ) : super(
     data,
@@ -161,12 +161,12 @@ class H3 extends TavyText {
   H3(
     data,
     {
-      max,
-      align = TextAlign.center,
-      fontName = defaultFontName,
-      size = 224,
-      weight = FontWeight.bold,
-      color,
+      int? max,
+      TextAlign align = TextAlign.center,
+      String fontName = defaultFontName,
+      double size = 24,
+      FontWeight weight = FontWeight.bold,
+      Color? color,
     }
   ) : super(
     data,
@@ -184,12 +184,12 @@ class H4 extends TavyText {
   H4(
     data,
     {
-      max,
-      align,
-      fontName = defaultFontName,
-      size = 18,
-      weight = FontWeight.bold,
-      color,
+      int? max,
+      TextAlign? align,
+      String fontName = defaultFontName,
+      double size = 18,
+      FontWeight weight = FontWeight.bold,
+      Color? color,
     }
   ) : super(
     data,
@@ -207,12 +207,12 @@ class H5 extends TavyText {
   H5(
     data,
     {
-      max,
-      align,
-      fontName = defaultFontName,
-      size = 18,
-      weight = FontWeight.bold,
-      color,
+      int? max,
+      TextAlign? align,
+      String fontName = defaultFontName,
+      double size = 18,
+      FontWeight weight = FontWeight.bold,
+      Color? color,
     }
   ) : super(
     data,
@@ -230,12 +230,12 @@ class H6 extends TavyText {
   H6(
     data,
     {
-      max,
-      align = TextAlign.center,
-      fontName,
-      size,
-      weight,
-      color,
+      int? max,
+      TextAlign align = TextAlign.center,
+      String? fontName,
+      double? size,
+      FontWeight? weight,
+      Color? color,
     }
   ) : super(
     data,
@@ -255,12 +255,12 @@ class S1 extends TavyText {
   S1(
     data,
     {
-      max,
-      align,
-      fontName,
-      size,
-      weight,
-      color,
+      int? max,
+      TextAlign? align,
+      String? fontName,
+      double? size,
+      FontWeight? weight,
+      Color? color,
     }
   ) : super(
     data,
@@ -278,12 +278,12 @@ class S2 extends TavyText {
   S2(
     data,
     {
-      max,
-      align,
-      fontName,
-      size = 14,
-      weight,
-      color,
+      int? max,
+      TextAlign? align,
+      String? fontName,
+      double? size = 14,
+      FontWeight? weight,
+      Color? color,
     }
   ) : super(
     data,
@@ -308,7 +308,7 @@ class P1 extends TavyText {
       fontName,
       size = 18,
       weight,
-      Color? color,
+      color,
     }
   ) : super(
     data,
