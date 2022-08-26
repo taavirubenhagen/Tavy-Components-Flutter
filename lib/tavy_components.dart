@@ -161,17 +161,21 @@ class H3 extends TavyText {
   H3(
     data,
     {
+      max,
       align = TextAlign.center,
       fontName = defaultFontName,
       size = 224,
       weight = FontWeight.bold,
+      color,
     }
   ) : super(
     data,
+    max: max,
     align: align,
     fontName: fontName,
     size: size,
     weight: weight,
+    color: color,
   );
 }
 
@@ -180,15 +184,21 @@ class H4 extends TavyText {
   H4(
     data,
     {
+      max,
+      align,
       fontName = defaultFontName,
       size = 18,
       weight = FontWeight.bold,
+      color,
     }
   ) : super(
     data,
+    max: max,
+    align: align,
     fontName: fontName,
     size: size,
     weight: weight,
+    color: color,
   );
 }
 
@@ -197,6 +207,8 @@ class H5 extends TavyText {
   H5(
     data,
     {
+      max,
+      align,
       fontName = defaultFontName,
       size = 18,
       weight = FontWeight.bold,
@@ -204,6 +216,8 @@ class H5 extends TavyText {
     }
   ) : super(
     data,
+    max: max,
+    align: align,
     fontName: fontName,
     size: size,
     weight: weight,
@@ -216,11 +230,21 @@ class H6 extends TavyText {
   H6(
     data,
     {
+      max,
       align = TextAlign.center,
+      fontName,
+      size,
+      weight,
+      color,
     }
   ) : super(
     data,
+    max: max,
     align: align,
+    fontName: fontName,
+    size: size,
+    weight: weight,
+    color: color,
   );
 }
 
@@ -231,10 +255,20 @@ class S1 extends TavyText {
   S1(
     data,
     {
+      max,
+      align,
+      fontName,
+      size,
+      weight,
       color,
     }
   ) : super(
     data,
+    max: max,
+    align: align,
+    fontName: fontName,
+    size: size,
+    weight: weight,
     color: color ?? Colors.grey.shade600,
   );
 }
@@ -244,12 +278,20 @@ class S2 extends TavyText {
   S2(
     data,
     {
+      max,
+      align,
+      fontName,
       size = 14,
+      weight,
       color,
     }
   ) : super(
     data,
+    max: max,
+    align: align,
+    fontName: fontName,
     size: size,
+    weight: weight,
     color: color ?? Colors.grey.shade600,
   );
 }
@@ -261,13 +303,21 @@ class P1 extends TavyText {
   P1(
     data,
     {
-      size = 18,
+      max,
       align = TextAlign.justify,
+      fontName,
+      size = 18,
+      weight,
+      color,
     }
   ) : super(
     data,
-    size: size,
+    max: max,
     align: align,
+    fontName: fontName,
+    size: size,
+    weight: weight,
+    color: color ?? Colors.grey.shade600,
   );
 }
 
@@ -276,14 +326,20 @@ class P2 extends TavyText {
   P2(
     data,
     {
-      size = 16,
+      max,
       align = TextAlign.justify,
+      fontName,
+      size = 16,
+      weight,
       color,
     }
   ) : super(
     data,
-    size: size,
+    max: max,
     align: align,
+    fontName: fontName,
+    size: size,
+    weight: weight,
     color: color,
   );
 }
