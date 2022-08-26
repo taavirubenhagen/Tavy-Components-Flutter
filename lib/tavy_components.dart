@@ -30,6 +30,10 @@ ColorScheme defaultColorScheme = const ColorScheme(
 
 
 
+void changeComponentsColorScheme(ColorScheme newColorScheme) => defaultColorScheme = newColorScheme;
+
+
+
 
 
 
