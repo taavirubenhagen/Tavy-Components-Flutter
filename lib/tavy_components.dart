@@ -97,7 +97,6 @@ class TavyText extends StatelessWidget {
   TavyText(
     this.data,
   {
-    this.colorScheme = defaultColorScheme,
     this.max = 5000,
     this.fontName = "Open Sans",
     this.align = TextAlign.left,
@@ -106,7 +105,6 @@ class TavyText extends StatelessWidget {
     this.color
   });
 
-  ColorScheme colorScheme;
   String data;
   int? max;
   TextAlign? align;
@@ -357,7 +355,7 @@ class P2 extends TavyText {
 // Large button
 class TavyLargeButton extends StatelessWidget {
   const TavyLargeButton({
-    this.colorScheme,
+    required this.colorScheme,
     this.iconData = Icons.check,
     this.iconSize = 64 + 10,
     this.color,
@@ -366,7 +364,7 @@ class TavyLargeButton extends StatelessWidget {
     this.onLongPress,
   });
 
-  final ColorScheme? colorScheme;
+  final ColorScheme colorScheme;
   final IconData iconData;
   final double iconSize;
   final Color? color;
@@ -380,7 +378,7 @@ class TavyLargeButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: hasBorder ? Border.all(color: colorScheme?.onSurface ?? defaultColorScheme.onSurface) : null,
+        border: hasBorder ? Border.all(color: colorScheme.onSurface) : null,
       ),
       child: TextButton(
         onPressed: onPressed,
@@ -388,7 +386,7 @@ class TavyLargeButton extends StatelessWidget {
         child: Icon(
           iconData,
           size: iconSize,
-          color: color ?? colorScheme?.primary.withOpacity(0.1) ?? defaultColorScheme.primary.withOpacity(0.1),
+          color: color ?? colorScheme.primary.withOpacity(0.1),
         ),
       ),
     );
@@ -403,7 +401,7 @@ class TavyLargeButton extends StatelessWidget {
 class TavyDialog extends StatefulWidget {
 
   const TavyDialog({
-    this.colorScheme = defaultColorScheme,
+    required this.colorScheme,
     this.formKey,
     this.width = 300,
     this.height = 300,
@@ -492,7 +490,7 @@ class _TavyDialogState extends State<TavyDialog> {
 // Text button with primary (filled), secondary (outlined) and tertiary (text-only) variations
 class TavyTextButton extends StatefulWidget {
   const TavyTextButton({
-    this.colorScheme = defaultColorScheme,
+    required this.colorScheme,
     this.isOutlined = true,
     this.isTertiary = false,
     this.text = "Submit",
@@ -573,7 +571,7 @@ class _TavyTextButtonState extends State<TavyTextButton> {
 void showTavySheet(
   context,
   {
-    ColorScheme colorScheme = defaultColorScheme,
+    required ColorScheme colorScheme,
 
     bool snapping = false,
     Duration? duration,
@@ -623,6 +621,7 @@ void showTavySheet(
         ),
       ),
       builder: (context, sheetState) => customContent ?? TavySheetContent(
+        colorScheme: colorScheme,
         minimumSnappableHeight: minimumSnappableHeight ?? snappings.first,
         padding: padding,
         isTitleSmall: isTitleSmall,
@@ -662,6 +661,7 @@ void showTavySheet(
               ),
             ),
             customContent ?? TavySheetContent(
+              colorScheme: colorScheme,
               minimumSnappableHeight: minimumSnappableHeight ?? snappings.first,
               padding: padding,
               isTitleSmall: isTitleSmall,
@@ -687,7 +687,7 @@ void showTavySheet(
 
 class TavySheetContent extends StatefulWidget {
   TavySheetContent({
-    this.colorScheme = defaultColorScheme,
+    required this.colorScheme,
     this.minimumSnappableHeight = 0.5,
     this.padding = const EdgeInsets.only(top: 32, left: 32, right: 32, bottom: 16),
     this.isTitleSmall = true,
@@ -757,6 +757,7 @@ class _TavySheetContentState extends State<TavySheetContent> {
               child: Container(
                 margin: EdgeInsets.only(top: 32),
                 child: TavyLargeButton(
+                  colorScheme: widget.colorScheme,
                   iconData: Icons.check,
                   onPressed: () => Navigator.pop(context),
                 ),
