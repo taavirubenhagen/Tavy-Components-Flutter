@@ -1,23 +1,24 @@
 <# This script commits changes to GitHub for iOS deployment #>
 
 
-param ([String]$OperatingSystem = "ios")
+param ([String]$os = "ios", [String]$m = "No version specified", [String]$pname = "project")
 
 
 
 
-if ($OperatingSystem -eq "ios" -or $OperatingSystem -eq "both") {
-  git commit . -m "2.0.0"
+if ($os -eq "ios" -or $os -eq "both") {
+  git add .
+  git commit . -m $m
   git push -u origin main
 }
 
-if ($OperatingSystem -eq "android" -or $OperatingSystem -eq "both") {
+if ($os -eq "android" -or $os -eq "both") {
   flutter build appbundle
 }
 
 
 try {
-  C:\\Users\User\SCRIPTS\Credit-Tavy "Deployed Tavy Components for Flutter."
+  C:\\Users\User\SCRIPTS\Credit-Tavy "Deployed $pname for Flutter."
 } catch {
   Write-Output Deployed.
 }
