@@ -102,7 +102,7 @@ class TavyText extends StatelessWidget {
     this.align = TextAlign.left,
     this.size = 16,
     this.weight = FontWeight.normal,
-    this.color
+    required this.color,
   });
 
   String data;
@@ -196,7 +196,7 @@ class H4 extends TavyText {
     fontName: fontName,
     size: size,
     weight: weight,
-    color: color,
+    color: Colors.black,//color,
   );
 }
 
