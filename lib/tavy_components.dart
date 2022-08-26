@@ -98,7 +98,7 @@ class TavyText extends StatelessWidget {
     this.data,
   {
     this.colorScheme = defaultClorScheme,
-    this.max = 5000,
+    this.max,
     this.fontName = "Open Sans",
     this.align = TextAlign.left,
     this.size = 16,
@@ -108,7 +108,7 @@ class TavyText extends StatelessWidget {
 
   ColorScheme colorScheme;
   String data;
-  int max;
+  int? max;
   TextAlign? align;
   String? fontName;
   double? size;
@@ -119,7 +119,7 @@ class TavyText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      ( data ).short(max),
+      ( data ).short(max ?? 5000),
       textAlign: align ?? TextAlign.left,
       style: GoogleFonts.getFont(
         fontName ?? "Open Sans",
