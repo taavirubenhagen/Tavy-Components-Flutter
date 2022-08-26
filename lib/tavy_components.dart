@@ -143,7 +143,7 @@ class H2 extends TavyText {
       String fontName = defaultFontName,
       double size = 22,
       FontWeight weight = FontWeight.bold,
-      required Color color,
+      required Color? color,
     }
   ) : super(
     data,
@@ -166,7 +166,7 @@ class H3 extends TavyText {
       String fontName = defaultFontName,
       double size = 24,
       FontWeight weight = FontWeight.bold,
-      required Color color,
+      required Color? color,
     }
   ) : super(
     data,
@@ -189,7 +189,7 @@ class H4 extends TavyText {
       String fontName = defaultFontName,
       double size = 18,
       FontWeight weight = FontWeight.bold,
-      required Color color,
+      required Color? color,
     }
   ) : super(
     data,
@@ -235,7 +235,7 @@ class H6 extends TavyText {
       String? fontName,
       double? size,
       FontWeight? weight,
-      required Color color,
+      required Color? color,
     }
   ) : super(
     data,
@@ -308,7 +308,7 @@ class P1 extends TavyText {
       String? fontName,
       double size = 18,
       FontWeight? weight,
-      required Color color,
+      required Color? color,
     }
   ) : super(
     data,
@@ -331,7 +331,7 @@ class P2 extends TavyText {
       String? fontName,
       double size = 16,
       FontWeight? weight,
-      required Color color,
+      required Color? color,
     }
   ) : super(
     data,
