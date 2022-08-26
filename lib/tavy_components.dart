@@ -303,12 +303,12 @@ class P1 extends TavyText {
   P1(
     data,
     {
-      max,
-      align = TextAlign.justify,
-      fontName,
-      size = 18,
-      weight,
-      color,
+      int? max,
+      TextAlign align = TextAlign.justify,
+      String? fontName,
+      double size = 18,
+      FontWeight? weight,
+      Color? color,
     }
   ) : super(
     data,
@@ -326,12 +326,12 @@ class P2 extends TavyText {
   P2(
     data,
     {
-      max,
-      align = TextAlign.justify,
-      fontName,
-      size = 16,
-      weight,
-      color,
+      int? max,
+      TextAlign align = TextAlign.justify,
+      String? fontName,
+      double size = 16,
+      FontWeight? weight,
+      Color? color,
     }
   ) : super(
     data,
