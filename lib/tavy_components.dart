@@ -143,7 +143,7 @@ class H2 extends TavyText {
       String fontName = defaultFontName,
       double size = 22,
       FontWeight weight = FontWeight.bold,
-      Color? color,
+      required Color color,
     }
   ) : super(
     data,
@@ -166,7 +166,7 @@ class H3 extends TavyText {
       String fontName = defaultFontName,
       double size = 24,
       FontWeight weight = FontWeight.bold,
-      Color? color,
+      required Color color,
     }
   ) : super(
     data,
@@ -189,7 +189,7 @@ class H4 extends TavyText {
       String fontName = defaultFontName,
       double size = 18,
       FontWeight weight = FontWeight.bold,
-      Color? color,
+      required Color color,
     }
   ) : super(
     data,
@@ -235,7 +235,7 @@ class H6 extends TavyText {
       String? fontName,
       double? size,
       FontWeight? weight,
-      Color? color,
+      required Color color,
     }
   ) : super(
     data,
@@ -308,7 +308,7 @@ class P1 extends TavyText {
       String? fontName,
       double size = 18,
       FontWeight? weight,
-      Color? color,
+      required Color color,
     }
   ) : super(
     data,
@@ -317,7 +317,7 @@ class P1 extends TavyText {
     fontName: fontName,
     size: size,
     weight: weight,
-    color: color ?? Colors.grey.shade600,
+    color: color,
   );
 }
 
@@ -331,7 +331,7 @@ class P2 extends TavyText {
       String? fontName,
       double size = 16,
       FontWeight? weight,
-      Color? color,
+      required Color color,
     }
   ) : super(
     data,
@@ -439,7 +439,7 @@ class _TavyDialogState extends State<TavyDialog> {
       ),
       title: Column(
         children: [
-          H2(widget.title),
+          H2(widget.title, color: widget.colorScheme.onSurface),
           widget.subtitle == null
           ? Container()
           : Container(
@@ -744,7 +744,7 @@ class _TavySheetContentState extends State<TavySheetContent> {
                         widget.title!,
                         max: defaultFontName == "IBM Plex Mono" ? 15 : 30,
                         align: TextAlign.center,
-                        color: widget.titleColor,
+                        color: widget.titleColor ?? widget.colorScheme.onSurface,
                       )
                     ),
                   ),
