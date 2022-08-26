@@ -14,7 +14,7 @@ import 'package:sliding_sheet/sliding_sheet.dart';
 
 
 const String defaultFontName = "Raleway";
-const ColorScheme defaultClorScheme = ColorScheme(
+const ColorScheme defaultColorScheme = ColorScheme(
   brightness: Brightness.light,
   primary: Colors.black,
   onPrimary: Colors.white,
@@ -97,12 +97,12 @@ class TavyText extends StatelessWidget {
   TavyText(
     this.data,
   {
-    this.colorScheme = defaultClorScheme,
+    this.colorScheme = defaultColorScheme,
     this.max,
-    this.fontName = "Open Sans",
-    this.align = TextAlign.left,
-    this.size = 16,
-    this.weight = FontWeight.normal,
+    this.fontName,
+    this.align,
+    this.size,
+    this.weight,
     this.color
   });
 
@@ -380,7 +380,7 @@ class TavyLargeButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: hasBorder ? Border.all(color: colorScheme?.onSurface ?? defaultClorScheme.onSurface) : null,
+        border: hasBorder ? Border.all(color: colorScheme?.onSurface ?? defaultColorScheme.onSurface) : null,
       ),
       child: TextButton(
         onPressed: onPressed,
@@ -388,7 +388,7 @@ class TavyLargeButton extends StatelessWidget {
         child: Icon(
           iconData,
           size: iconSize,
-          color: color ?? colorScheme?.primary.withOpacity(0.1) ?? defaultClorScheme.primary.withOpacity(0.1),
+          color: color ?? colorScheme?.primary.withOpacity(0.1) ?? defaultColorScheme.primary.withOpacity(0.1),
         ),
       ),
     );
@@ -403,7 +403,7 @@ class TavyLargeButton extends StatelessWidget {
 class TavyDialog extends StatefulWidget {
 
   const TavyDialog({
-    this.colorScheme = defaultClorScheme,
+    this.colorScheme = defaultColorScheme,
     this.formKey,
     this.width = 300,
     this.height = 300,
@@ -492,7 +492,7 @@ class _TavyDialogState extends State<TavyDialog> {
 // Text button with primary (filled), secondary (outlined) and tertiary (text-only) variations
 class TavyTextButton extends StatefulWidget {
   const TavyTextButton({
-    this.colorScheme = defaultClorScheme,
+    this.colorScheme = defaultColorScheme,
     this.isOutlined = true,
     this.isTertiary = false,
     this.text = "Submit",
@@ -573,7 +573,7 @@ class _TavyTextButtonState extends State<TavyTextButton> {
 void showTavySheet(
   context,
   {
-    ColorScheme colorScheme = defaultClorScheme,
+    ColorScheme colorScheme = defaultColorScheme,
 
     bool snapping = false,
     Duration? duration,
@@ -687,7 +687,7 @@ void showTavySheet(
 
 class TavySheetContent extends StatefulWidget {
   TavySheetContent({
-    this.colorScheme = defaultClorScheme,
+    this.colorScheme = defaultColorScheme,
     this.minimumSnappableHeight = 0.5,
     this.padding = const EdgeInsets.only(top: 32, left: 32, right: 32, bottom: 16),
     this.isTitleSmall = true,
@@ -790,7 +790,7 @@ void showTavyInfoSnackBar(
   context,
   String text,
   {
-    ColorScheme colorScheme = defaultClorScheme,
+    ColorScheme colorScheme = defaultColorScheme,
     Color? color,
     double fontSize = 16,
     Color? fontColor,
@@ -840,7 +840,7 @@ class DesignedBy extends StatelessWidget {
 
   const DesignedBy(
   {
-    this.colorScheme = defaultClorScheme,
+    this.colorScheme = defaultColorScheme,
     this.created = false,
   });
 
