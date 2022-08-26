@@ -308,7 +308,7 @@ class P1 extends TavyText {
       fontName,
       size = 18,
       weight,
-      color,
+      Color? color,
     }
   ) : super(
     data,
