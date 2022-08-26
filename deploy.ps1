@@ -9,7 +9,6 @@ param ([String]$OperatingSystem = "ios")
 if ($OperatingSystem -eq "ios" -or $OperatingSystem -eq "both") {
   git commit deploy.ps1 pubspec.yaml ./lib ./test -m "2.0.0"
   git push -u origin main
-  echo sdgsdfgdsf
 }
 
 if ($OperatingSystem -eq "android" -or $OperatingSystem -eq "both") {
