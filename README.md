@@ -1,4 +1,4 @@
-# Tavy-Components
+# Tavy-Component
 
 This project contains useful Flutter widgets and functions first used in the mobile app Presentation Master to allow developers to implement beautiful and highly customizable Material-based UI components with very few lines of code.
 
