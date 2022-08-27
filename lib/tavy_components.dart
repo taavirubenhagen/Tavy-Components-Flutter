@@ -230,7 +230,7 @@ class H6 extends TavyText {
     {
       int? max,
       TextAlign align = TextAlign.center,
-      String? fontName = defaultFontName,
+      String fontName = defaultFontName,
       double? size,
       FontWeight? weight,
       required Color? color,
