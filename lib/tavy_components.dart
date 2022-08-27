@@ -102,6 +102,7 @@ class TavyText extends StatelessWidget {
     this.align = TextAlign.left,
     this.size = 16,
     this.weight = FontWeight.normal,
+    this.lineHeight = 1,
     required this.color,
   });
 
@@ -111,6 +112,7 @@ class TavyText extends StatelessWidget {
   String? fontName;
   double? size;
   FontWeight? weight;
+  double lineHeight;
   Color? color;
 
 
@@ -124,6 +126,7 @@ class TavyText extends StatelessWidget {
         fontSize: size ?? 16,
         fontWeight: weight ?? FontWeight.normal,
         color: color!,
+        height: lineHeight,
       ),
     );
   }
@@ -188,6 +191,7 @@ class H4 extends TavyText {
       double size = 18,
       FontWeight weight = FontWeight.bold,
       required Color? color,
+      double lineHeight = 1.5,
     }
   ) : super(
     data,
@@ -197,6 +201,7 @@ class H4 extends TavyText {
     size: size,
     weight: weight,
     color: color,
+    lineHeight: lineHeight,
   );
 }
 
