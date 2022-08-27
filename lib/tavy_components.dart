@@ -196,7 +196,7 @@ class H4 extends TavyText {
     fontName: fontName,
     size: size,
     weight: weight,
-    color: Colors.black,//color,
+    color: color,
   );
 }
 
@@ -230,7 +230,7 @@ class H6 extends TavyText {
     {
       int? max,
       TextAlign align = TextAlign.center,
-      String? fontName,
+      String? fontName = defaultFontName,
       double? size,
       FontWeight? weight,
       required Color? color,
