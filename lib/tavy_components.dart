@@ -13,7 +13,7 @@ import 'package:sliding_sheet/sliding_sheet.dart';
 
 
 
-const String defaultFontName = "Raleway";
+//const String "Raleway" = "Raleway";
 const ColorScheme defaultColorScheme = ColorScheme(
   brightness: Brightness.light,
   primary: Colors.black,
@@ -138,7 +138,7 @@ class H2 extends TavyText {
     {
       int? max,
       TextAlign align = TextAlign.center,
-      String fontName = defaultFontName,
+      String fontName = "Raleway",
       double size = 22,
       FontWeight weight = FontWeight.bold,
       required Color? color,
@@ -161,7 +161,7 @@ class H3 extends TavyText {
     {
       int? max,
       TextAlign align = TextAlign.center,
-      String fontName = defaultFontName,
+      String fontName = "Raleway",
       double size = 24,
       FontWeight weight = FontWeight.bold,
       required Color? color,
@@ -184,7 +184,7 @@ class H4 extends TavyText {
     {
       int? max,
       TextAlign? align,
-      String fontName = defaultFontName,
+      String fontName = "Raleway",
       double size = 18,
       FontWeight weight = FontWeight.bold,
       required Color? color,
@@ -207,7 +207,7 @@ class H5 extends TavyText {
     {
       int? max,
       TextAlign? align,
-      String fontName = defaultFontName,
+      String fontName = "Raleway",
       double size = 18,
       FontWeight weight = FontWeight.bold,
       Color? color,
@@ -230,7 +230,7 @@ class H6 extends TavyText {
     {
       int? max,
       TextAlign align = TextAlign.center,
-      String fontName = defaultFontName,
+      String fontName = "Raleway",
       double? size,
       FontWeight? weight,
       required Color? color,
@@ -742,7 +742,7 @@ class _TavySheetContentState extends State<TavySheetContent> {
                       )
                       : H2(
                         widget.title!,
-                        max: defaultFontName == "IBM Plex Mono" ? 15 : 30,
+                        max: "Raleway" == "IBM Plex Mono" ? 15 : 30,
                         align: TextAlign.center,
                         color: widget.titleColor ?? widget.colorScheme.onSurface,
                       )
