@@ -242,7 +242,7 @@ class H6 extends TavyText {
     fontName: fontName,
     size: size,
     weight: weight,
-    color: Colors.green,
+    color: color,
   );
 }
 
