@@ -215,7 +215,6 @@ class H5 extends TavyText {
       String fontName = "Raleway",
       double size = 18,
       FontWeight weight = FontWeight.bold,
-      Color? color,
     }
   ) : super(
     data,
@@ -224,7 +223,7 @@ class H5 extends TavyText {
     fontName: fontName,
     size: size,
     weight: weight,
-    color: color ?? Colors.grey.shade600,
+    color: Colors.grey.shade600,
   );
 }
 
@@ -286,7 +285,6 @@ class S2 extends TavyText {
       String? fontName,
       double? size = 14,
       FontWeight? weight,
-      Color? color,
     }
   ) : super(
     data,
@@ -295,7 +293,7 @@ class S2 extends TavyText {
     fontName: fontName,
     size: size,
     weight: weight,
-    color: color ?? Colors.grey.shade600,
+    color: Colors.grey.shade600,
   );
 }
 
@@ -710,7 +708,7 @@ class TavySheetContent extends StatefulWidget {
   EdgeInsets? padding;
   bool isTitleSmall;
   double? titlePadding;
-  Color? titleColor;
+  Color? titleColor = Colors.grey.shade600;
   String? title;
   Widget? topLeftButton;
   Widget? topRightButton;
@@ -741,7 +739,7 @@ class _TavySheetContentState extends State<TavySheetContent> {
                     margin: widget.title == null ? null : ( EdgeInsets.only(bottom: widget.titlePadding ?? ( widget.isTitleSmall ? 16 : 32 ))),
                     child: widget.title == null ? null : (
                       widget.isTitleSmall
-                      ? H5(
+                      ? H4(
                         widget.title!,
                         color: widget.titleColor,
                       )
