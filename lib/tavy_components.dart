@@ -125,7 +125,7 @@ class TavyText extends StatelessWidget {
         fontName ?? "Open Sans",
         fontSize: size ?? 16,
         fontWeight: weight ?? FontWeight.normal,
-        color: color!,
+        color: color,
         height: lineHeight,
       ),
     );
