@@ -546,7 +546,7 @@ class _TavyTextButtonState extends State<TavyTextButton> {
         fixedSize: MaterialStateProperty.all(Size(widget.width, widget.height)),
         backgroundColor: MaterialStateProperty.all(
           widget.isOutlined
-          ?  Colors.transparent
+          ?  widget.colorScheme.surface
           : widget.color ?? ( widget.colorScheme.brightness == Brightness.dark && false ? widget.colorScheme.onSurface.withOpacity(0.5) : widget.colorScheme.primary ),
         ),
         shape: MaterialStateProperty.all(StadiumBorder(
