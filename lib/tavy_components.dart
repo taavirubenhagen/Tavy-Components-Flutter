@@ -459,7 +459,7 @@ class _TavyDialogState extends State<TavyDialog> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Container(
-                width: 280,
+                width: widget.width - 20,
                 height: widget.height - ( widget.subtitle == null ? 75 : 125 ),
                 child: ListView(
                   physics: BouncingScrollPhysics(),
@@ -547,7 +547,7 @@ class _TavyTextButtonState extends State<TavyTextButton> {
         backgroundColor: MaterialStateProperty.all(
           widget.isOutlined
           ?  widget.colorScheme.surface
-          : widget.color ?? ( widget.colorScheme.brightness == Brightness.dark && false ? widget.colorScheme.onSurface.withOpacity(0.5) : widget.colorScheme.primary ),
+          : widget.color ?? widget.colorScheme.primary,
         ),
         shape: MaterialStateProperty.all(StadiumBorder(
           side: widget.isOutlined
@@ -560,7 +560,7 @@ class _TavyTextButtonState extends State<TavyTextButton> {
       onLongPress: widget.onLongPress,
       child: P2(
         widget.text,
-        color: widget.isOutlined ? widget.colorScheme.onBackground : widget.colorScheme.onPrimary,
+        color: widget.isOutlined ? widget.colorScheme.onSurface : widget.colorScheme.onPrimary,
       ),
     );
   }
