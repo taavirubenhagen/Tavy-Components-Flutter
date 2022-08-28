@@ -102,7 +102,7 @@ class TavyText extends StatelessWidget {
     this.align = TextAlign.left,
     this.size = 16,
     this.weight = FontWeight.normal,
-    this.lineHeight = 1,
+    this.lineHeight = 1.5,
     required this.color,
   });
 
@@ -740,7 +740,7 @@ class _TavySheetContentState extends State<TavySheetContent> {
                     child: widget.title == null ? null : (
                       widget.isTitleSmall
                       ? H4(
-                        widget.title!,
+                        widget.title,
                         color: widget.titleColor,
                       )
                       : H2(
