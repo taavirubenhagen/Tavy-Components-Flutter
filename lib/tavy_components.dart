@@ -389,7 +389,7 @@ class TavyLargeButton extends StatelessWidget {
         child: Icon(
           iconData,
           size: iconSize,
-          color: color ?? colorScheme.primary.withOpacity(0.1),
+          color: color ?? colorScheme.primary.withOpacity(0.25),
         ),
       ),
     );
