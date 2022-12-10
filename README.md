@@ -16,6 +16,5 @@ This project contains useful Flutter widgets and functions first used in the mob
 - Typefaces based on the Material design system and the font Open Sans: H1 - H6, P1 - P2, S1 - S2.
 - Customizable standard components.
 
-
-<br/><br/>
-Designed by **Taavi Rübenhagen**.
+#
+###### Created by Taavi Rübenhagen
