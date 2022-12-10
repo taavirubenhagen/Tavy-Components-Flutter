@@ -30,7 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  google_fonts: ^2.2.0
+  google_fonts: ^3.0.1
   
   modal_bottom_sheet: ^2.0.1
   sliding_sheet: ^0.5.2
